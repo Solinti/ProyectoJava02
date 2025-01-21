@@ -1,0 +1,32 @@
+package mantenimiento;
+
+import java.awt.EventQueue;
+
+import javax.swing.*;
+
+public class Curso extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		Curso c = new Curso();
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Curso() {
+		JFrame frame = new JFrame("Curso");
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setSize(400,300);
+
+		setContentPane(contentPane);
+		
+		frame.setVisible(true);
+	}
+
+}

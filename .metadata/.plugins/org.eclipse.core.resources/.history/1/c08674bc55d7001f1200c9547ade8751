@@ -1,0 +1,36 @@
+// En el paquete principal
+package principal;
+
+import javax.swing.*;
+import mantenimiento.Alumno;
+
+public class Menu1 extends JFrame {
+    private JMenuItem mntmAlumno;
+    private Alumno alumno;
+
+    public Menu1() {
+        // Configuración del JMenuBar y JMenuItem
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menu = new JMenu("Archivo");
+        mntmAlumno = new JMenuItem("Alumno");
+        menu.add(mntmAlumno);
+        menuBar.add(menu);
+        setJMenuBar(menuBar);
+
+        // Vincular el JMenuItem con la clase Alumno
+        mntmAlumno.addActionListener(e -> {
+            alumno = new Alumno();
+            // Aquí puedes agregar más lógica relacionada con la clase Alumno
+        });
+
+        // Configuración adicional del JFrame
+        setTitle("Mi Aplicación");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void main(String[] args) {
+        Menu menu = new Menu();
+        menu.setVisible(true);
+    }
+}

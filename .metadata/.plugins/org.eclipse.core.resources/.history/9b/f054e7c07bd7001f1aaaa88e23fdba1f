@@ -1,0 +1,126 @@
+package mantenimiento;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+class Persona {
+    String nombre;
+    String apellido;
+    String dni;
+    int edad;
+    String celular;
+    int estado;
+
+    public Persona(String nombre, String apellido, String dni, int edad, String celular) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.edad = edad;
+        this.celular = celular;
+        this.estado = 0; // Registrado
+    }
+}
+
+public class RegistroDePersonas extends JFrame {
+    private ArrayList<Persona> personas;
+    private ArrayList<String> dniesRegistrados;
+    private int codigoCorrelativo;
+
+    public RegistroDePersonas() {
+        personas = new ArrayList<>();
+        dniesRegistrados = new ArrayList<>();
+        codigoCorrelativo = 1;
+
+        setTitle("Registro de Personas");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        JLabel nombreLabel = new JLabel("Nombre:");
+        JTextField nombreField = new JTextField(20);
+        panel.add(nombreLabel);
+        panel.add(nombreField);
+
+        JLabel apellidoLabel = new JLabel("Apellido:");
+        JTextField apellidoField = new JTextField(20);
+        panel.add(apellidoLabel);
+        panel.add(apellidoField);
+
+        JLabel dniLabel = new JLabel("DNI:");
+        JTextField dniField = new JTextField(20);
+        panel.add(dniLabel);
+        panel.add(dniField);
+
+        JLabel edadLabel = new JLabel("Edad:");
+        JTextField edadField = new JTextField(5);
+        panel.add(edadLabel);
+        panel.add(edadField);
+
+        JLabel celularLabel = new JLabel("Celular:");
+        JTextField celularField = new JTextField(20);
+        panel.add(celularLabel);
+        panel.add(celularField);
+
+        JButton agregarButton = new JButton("Agregar");
+        panel.add(agregarButton);
+        add(panel, BorderLayout.CENTER);
+        agregarButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String nombre = nombreField.getText();
+                String apellido = apellidoField.getText();
+                String dni = dniField.getText();
+                int edad = Integer.parseInt(edadField.getText());
+                String celular = celularField.getText();
+
+                if (dniesRegistrados.contains(dni)) {
+                    JOptionPane.showMessageDialog(null, "El DNI ya está registrado.");
+                    return;
+                }
+
+                Persona persona = new Persona(nombre, apellido, dni, edad, celular);
+                personas.add(persona);
+                dniesRegistrados.add(dni);
+
+                codigoCorrelativo++;
+                nombreField.setText("");
+                apellidoField.setText("");
+                dniField.setText("");
+                edadField.setText("");
+                celularField.setText("");
+
+                JOptionPane.showMessageDialog(null, "Persona registrada.");
+            }
+        });
+       
+
+        JButton mostrarButton = new JButton("Mostrar Registros");
+        mostrarButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                StringBuilder sb = new StringBuilder();
+                for (Persona persona : personas) {
+                    sb.append("Código: ").append(codigoCorrelativo).append(", Nombre: ").append(persona.nombre)
+                      .append(", Apellido: ").append(persona.apellido).append(", DNI: ").append(persona.dni)
+                      .append(", Edad: ").append(persona.edad).append(", Celular: ").append(persona.celular)
+                      .append(", Estado: ").append(persona.estado).append("\n");
+                    codigoCorrelativo++;
+                }
+                JOptionPane.showMessageDialog(null, sb.toString());
+            }
+        });
+        add(mostrarButton, BorderLayout.SOUTH);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new RegistroDePersonas().setVisible(true);
+            }
+        });
+    }
+}

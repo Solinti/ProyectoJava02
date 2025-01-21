@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="mantenimiento.Alumno"/>
+    <fullyQualifiedTypeName name="registro.Matricula"/>
+    <fullyQualifiedTypeName name="registro.Retiro"/>
+    <fullyQualifiedTypeName name="consulta.AlumnosCursos"/>
+    <fullyQualifiedTypeName name="consulta.MatriculaRetiros"/>
+    <fullyQualifiedTypeName name="reporte.MatriculaPendiente"/>
+    <fullyQualifiedTypeName name="reporte.MatriculaVigente"/>
+    <fullyQualifiedTypeName name="reporte.MatriculadosCurso"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+</qualifiedTypeNameHistroy>

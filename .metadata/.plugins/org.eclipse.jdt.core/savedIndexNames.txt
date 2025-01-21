@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+H:\Cibertec\Algoritmos02\Proyecto\.metadata\.plugins\org.eclipse.jdt.core
+762679897.index
+572510209.index
+1865797976.index

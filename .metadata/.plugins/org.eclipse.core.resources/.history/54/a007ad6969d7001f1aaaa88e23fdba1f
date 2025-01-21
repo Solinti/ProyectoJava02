@@ -1,0 +1,42 @@
+package mantenimiento;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
+public class Curso extends JFrame {
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Curso frame = new Curso();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Curso() {
+		setTitle("Ventana de Curso");
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setSize(400,300);
+		
+		JPanel panel = new JPanel();
+		frame.setContentPane(panel);
+		panel.setLayout(null);
+
+
+	}
+
+}
