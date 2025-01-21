@@ -104,7 +104,7 @@ public class Alumno extends JFrame {
 				
 		alumnos = new ArrayList<>();
         dnisRegistrados = new ArrayList<>();
-        codigoCorrelativo = 202010001;
+        codigoCorrelativo = 1;
 		
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -143,14 +143,10 @@ public class Alumno extends JFrame {
 	            public void actionPerformed(ActionEvent e) {
 	                StringBuilder r = new StringBuilder();
 	                for (Adicionar alumno : alumnos) {
-	                    r.append("Código   :").append(codigoCorrelativo+"\n")
-	                     .append("Nombre   :").append(alumno.nombre+"\n")
-	                     .append("Apellido :").append(alumno.apellido+"\n")
-	                     .append("DNI      :").append(alumno.dni+"\n")
-	                     .append("Edad     :").append(alumno.edad+"\n")
-	                     .append("Celular  :").append(alumno.celular+"\n")
-	                     .append("Estado   :").append(alumno.estado+"\n")
-	                     .append("\n");
+	                    r.append("Código: ").append(codigoCorrelativo).append(", Nombre: ").append(alumno.nombre)
+	                      .append(", Apellido: ").append(alumno.apellido).append(", DNI: ").append(alumno.dni)
+	                      .append(", Edad: ").append(alumno.edad).append(", Celular: ").append(alumno.celular)
+	                      .append(", Estado: ").append(alumno.estado).append("\n");
 	                    codigoCorrelativo++;
 	                }
 	                txtArea.setText(r.toString());
