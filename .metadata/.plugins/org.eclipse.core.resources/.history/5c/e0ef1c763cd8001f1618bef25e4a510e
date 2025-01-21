@@ -104,7 +104,7 @@ public class Alumno extends JFrame {
 				
 		alumnos = new ArrayList<>();
         dnisRegistrados = new ArrayList<>();
-        codigoCorrelativo = 202010001;
+        codigoCorrelativo = 202510001;
 		
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
