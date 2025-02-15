@@ -3,6 +3,8 @@ package mantenimiento;
 
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,6 +32,8 @@ public class Alumno extends JFrame {
 	private ArrayList<Adicionar> alumnos;
     private ArrayList<String> dnisRegistrados;
     private int codigoCorrelativo;
+    private JTable tblAlumno;
+    private DefaultTableModel modelo;
 	
     public static void main(String[] args) {
 		Alumno a = new Alumno();
@@ -93,6 +97,10 @@ public class Alumno extends JFrame {
 		txtArea.setFont(new Font("Monospaced", Font.PLAIN, 13));
 		scroll.setViewportView(txtArea);
 		
+		tblAlumno = new JTable();
+		tblAlumno.setFillsViewportHeight(true);
+		scroll.setViewportView(tblAlumno);
+		
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.setBounds(360, 21, 89, 23);
 		panel.add(btnGuardar);
@@ -101,11 +109,21 @@ public class Alumno extends JFrame {
 		btnRegistros.setBounds(360, 69, 89, 23);
 		panel.add(btnRegistros);
 		
+		modelo = new DefaultTableModel();
+		modelo.addColumn("código");
+		modelo.addColumn("nombre");
+		modelo.addColumn("Apellido");
+		modelo.addColumn("DNI");
+		modelo.addColumn("Edad");
+		modelo.addColumn("Celular");
+		modelo.addColumn("Estado");
+		tblAlumno.setModel(modelo);
 				
 		alumnos = new ArrayList<>();
         dnisRegistrados = new ArrayList<>();
         codigoCorrelativo = 202010001;
-		
+        
+   
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -138,8 +156,8 @@ public class Alumno extends JFrame {
 			}	
 				
 		});
-		
-		btnRegistros.addActionListener(new ActionListener() {
+				
+		/*btnRegistros.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e) {
 	                StringBuilder r = new StringBuilder();
 	                for (Adicionar alumno : alumnos) {
@@ -155,12 +173,25 @@ public class Alumno extends JFrame {
 	                }
 	                txtArea.setText(r.toString());
 	            }
-	        });
+	        });*/
 		
+	 
 		
 		
 		frame.setVisible(true);
 
 	}
+	
+	void listar() {
+		modelo.setRowCount(0);
+		//for (int i=0; i< alumno ; i++) {
+			Object[] fila = { aa.obtener(i).getCodigo(),
+					          aa.obtener(i).getNombre(),
+					          aa.obtener(i).getNota1(),
+					          aa.obtener(i).getNota2(),
+					          aa.obtener(i).promedio() };
+			modelo.addRow(fila);
+		}
+	//}
 
 }
