@@ -1,0 +1,2 @@
+202010001, Alex, Fabian, 12345678, 20, 9090900, Matriculado
+202010002, Rosa, Linares, 8765431, 21, 999888777, Registrado

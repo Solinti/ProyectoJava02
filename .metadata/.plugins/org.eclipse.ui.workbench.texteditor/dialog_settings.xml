@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="java.lang.Class">
-		<item key="selection" value="package mantenimiento;"/>
+		<item key="selection" value="if (!validarCampos()) {"/>
 		<list key="findhistory">
-			<item value="package mantenimiento;"/>
+			<item value="if (!validarCampos()) {"/>
+			<item value=" txtCodigo.setText(String.valueOf(a.getCodAlumno()));"/>
 		</list>
 	</section>
 </section>
